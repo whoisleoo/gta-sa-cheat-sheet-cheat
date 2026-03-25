@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* VARIAVEIS DE COR DO PROJETO */
+    --color-background: #0C0C0C;
+    --color-background-contrast: #181C14;
+    --color-accent: #FF6500;
+    --color-accent-contrast: #C62300;
+
+    /* VARIAVEIS DE FONTES PRO PROJETO */
+    --font-body: 'Archivo Black', sans-serif;
+    --font-content: 'Inter', sans-serif;
+
+  }
+  
+
+
+*,
+*:active,
+*:focus {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body{
+    font-family: var(--font-content);
+  }
+
+html,
+body {
+  overflow-x: clip;
+  background-color: var(--color-background);
+  scroll-behavior: auto;
+  overscroll-behavior: none;
+}
+
+
+
+   h1, h2, h3, h4 {
+    font-family: var(--font-body);
+    color: var(--color-accent);
+  }
+
+  p{
+    font-family: var(--font-content);
+    color: white;
+
+  }
+
+
+  /* COISAS BASICAS: */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+
+.navbar {
+
+}
+
+.about {
+
+}
+
+.cheats {
+
+}
+
+.footer {
+    
+}
