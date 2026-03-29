@@ -61,23 +61,43 @@
             .weapon-info { flex: 1; }
         }
 
-        /* Estilos base para localização (ainda sem hover flexível) */
+        /* Estilos base para localização (Hover Flexível) */
         .location-tab {
             margin-top: 1rem;
             background-color: var(--color-accent);
             color: var(--color-background);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 4px;
             display: inline-block;
             font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
+
         .location-content {
-            display: none;
-            padding: 1rem;
-            background: rgba(255,255,255,0.05);
-            margin-top: 0.5rem;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            background-color: rgba(255, 101, 0, 0.05);
+            border-left: 3px solid var(--color-accent);
+            margin-top: 0;
+            padding: 0 1rem;
+            text-align: left;
+            transition: all 0.4s ease-in-out;
         }
-        .city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.5rem; }
+
+        .weapon-card:hover .location-content {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+        .weapon-card:hover .location-tab {
+            background-color: var(--color-accent-contrast);
+        }
+
+        .city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
     </style>
 </head>
 <body>
