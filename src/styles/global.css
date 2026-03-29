@@ -1,0 +1,26 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #05050f;
+  --bg2:       #08081a;
+  --card:      #0d0d22;
+  --accent:    #00d4ff;
+  --accent2:   #b400ff;
+  --text:      #e8eaff;
+  --muted:     #6a6a9a;
+  --font-title: 'Bebas Neue', sans-serif;
+  --font-body:  'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
