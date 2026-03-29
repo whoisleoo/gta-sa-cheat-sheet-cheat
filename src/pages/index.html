@@ -137,7 +137,59 @@
   </section>
 
   <!-- FORMULÁRIO -->
-  <section id="contato"></section>
+  <section id="contato">
+    <div class="container">
+  <p class="section-label">Sugestões</p>
+  <h2 class="section-title">INDICA UM <span>CARRO</span></h2>
+  <form class="form-grid" onsubmit="handleSubmit(event)">
+    <div class="form-group">
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Ex: Carl Johnson" required>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="cj@grove.com" required>
+    </div>
+    <div class="form-group full">
+      <label for="carro">Nome do carro</label>
+      <input type="text" id="carro" name="carro" placeholder="Ex: Sultan" required>
+    </div>
+    <div class="form-group full">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria">
+        <option value="">Selecione...</option>
+        <option>Supercar</option>
+        <option>Sports</option>
+        <option>Muscle</option>
+        <option>Off-Road</option>
+        <option>Lowrider</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="motivo">Por que merece entrar no ranking?</label>
+      <textarea id="motivo" name="motivo" placeholder="Explica os pontos fortes do carro..."></textarea>
+    </div>
+    <div class="form-group full">
+      <button type="submit" class="form-submit">ENVIAR SUGESTÃO</button>
+    </div>
+  </form>
+</div>
+
+<!-- Adicionar antes de </body> -->
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ ENVIADO!';
+    btn.style.background = '#4caf50';
+    setTimeout(() => {
+      btn.textContent = 'ENVIAR SUGESTÃO';
+      btn.style.background = '';
+      e.target.reset();
+    }, 2500);
+  }
+</script>
+  </section>
 
   <!-- FOOTER -->
   <footer></footer>
