@@ -6,16 +6,69 @@
     <title>Melhores Armas - GTA San Andreas</title>
     <link rel="stylesheet" href="../styles/global.css">
     <style>
+        /* REQUISITO: Position Sticky no Header */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background-color: var(--color-background);
+            z-index: 100;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* REQUISITO: Formulário HTML */
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .search-form input {
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--color-accent);
+            background: #1a1a1a;
+            color: white;
+            width: 100%;
+            max-width: 300px;
+        }
+        .search-form button {
+            padding: 0.8rem 1.5rem;
+            background: var(--color-accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: var(--font-body);
+            border-radius: 4px;
+        }
+
+        /* REQUISITO: Grid Layout na lista de armas */
+        #weapon-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Flexbox nos cards (Mantido) */
         .weapon-card {
             background-color: var(--color-background-contrast);
             border: 2px solid var(--color-accent);
             border-radius: 8px;
-            margin-bottom: 2rem;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            transition: transform 0.3s ease; /* Animação 1: Transition/Transform */
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-5px); /* Animação 2: Hover com deslocamento */
         }
 
         .weapon-image {
@@ -24,6 +77,16 @@
             border-radius: 4px;
             margin-bottom: 1rem;
             border: 1px solid var(--color-accent-contrast);
+        }
+
+        /* REQUISITO: Animação com Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .weapon-card {
+            animation: fadeIn 0.6s ease-out forwards; /* Animação 3: Keyframes */
         }
 
         .weapon-info h2 {
@@ -36,32 +99,7 @@
             line-height: 1.6;
         }
 
-        header {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .weapon-card {
-                flex-direction: row;
-                text-align: left;
-                gap: 2rem;
-                align-items: flex-start;
-            }
-
-            .weapon-image {
-                width: 300px;
-                margin-bottom: 0;
-            }
-            .weapon-info { flex: 1; }
-        }
-
-        /* Estilos base para localização (Hover Flexível) */
+        /* Aba de localização com animação suave */
         .location-tab {
             margin-top: 1rem;
             background-color: var(--color-accent);
@@ -71,7 +109,11 @@
             display: inline-block;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.3s, letter-spacing 0.3s; /* Animação 4: Múltiplas transições */
+        }
+
+        .location-tab:hover {
+            letter-spacing: 2px;
         }
 
         .location-content {
@@ -93,20 +135,47 @@
             padding: 1rem;
         }
 
-        .weapon-card:hover .location-tab {
-            background-color: var(--color-accent-contrast);
+        .city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
+
+        /* REQUISITO: Position Fixed no botão de topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--color-accent);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            z-index: 1000;
         }
 
-        .city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
+        /* Responsividade com Grid */
+        @media (min-width: 992px) {
+            #weapon-list {
+                grid-template-columns: 1fr 1fr; /* Grid em duas colunas no desktop */
+            }
+        }
+
+        @media (min-width: 768px) {
+            .weapon-card {
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>AS MELHORES ARMAS DE SAN ANDREAS</h1>
-            <p class="intro-text">
-                O arsenal definitivo para dominar as ruas de Los Santos, San Fierro e Las Venturas.
-            </p>
+            <h1>ARMAS DE SAN ANDREAS</h1>
+            <div class="search-container">
+                <form class="search-form" onsubmit="return false;">
+                    <input type="text" placeholder="Buscar arma...">
+                    <button type="submit">BUSCAR</button>
+                </form>
+            </div>
         </header>
 
         <main id="weapon-list">
@@ -115,12 +184,10 @@
                 <img src="../content/San_Andreas_katana.jpg" alt="Katana" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Katana</h2>
-                    <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio. Decapite seus inimigos com precisão milimétrica.</p>
+                    <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">Los Santos</span> Beco em frente à esquina do desafio de lowriders.
-                        <span class="city-tag">San Fierro</span> Chinatown, beco perto do fim da rua à direita.
-                        <span class="city-tag">Las Venturas</span> Ao lado do save point do Four Dragons Casino.
                     </div>
                 </div>
             </section>
@@ -130,12 +197,10 @@
                 <img src="../content/San_Andreas_M4.jpg" alt="M4" class="weapon-image">
                 <div class="weapon-info">
                     <h2>M4</h2>
-                    <p>Quando a situação esquenta e você precisa de precisão a longa distância, a M4 é sua melhor amiga.</p>
+                    <p>Quando a situação esquenta e você precisa de precisão, a M4 é sua melhor amiga.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">Los Santos</span> Final da pista da direita do Aeroporto de LS.
-                        <span class="city-tag">San Fierro</span> Palisades, quintal da terceira casa.
-                        <span class="city-tag">Las Venturas</span> Telhado de um motel com piscina em Pilgrim.
                     </div>
                 </div>
             </section>
@@ -145,11 +210,10 @@
                 <img src="../content/San_Andreas_minigun.jpg" alt="Minigun" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Minigun</h2>
-                    <p>O ápice da destruição. Capaz de transformar veículos em sucatas fumegantes em segundos.</p>
+                    <p>O ápice da destruição. Transforma veículos em sucatas em segundos.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">San Fierro</span> Topo do primeiro arco da ponte ferroviária.
-                        <span class="city-tag">Las Venturas</span> Beco em Roca Escalante, ao lado da Dick's Sounds.
                     </div>
                 </div>
             </section>
@@ -159,47 +223,20 @@
                 <img src="../content/San_Andreas_satchel_charge_(1).jpg" alt="Bomba C4" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Bomba C4</h2>
-                    <p>Para o estrategista explosivo. Plante-as em carros e detone-as à distância.</p>
+                    <p>Para o estrategista explosivo. Detone-as à distância.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">San Fierro</span> Atrás do prédio do Avispa Country Club.
-                        <span class="city-tag">Red County</span> Beco ao lado da Inside Track em Montgomery.
-                    </div>
-                </div>
-            </section>
-
-            <!-- SMG -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_SMG.jpg" alt="SMG" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>SMG (MP5)</h2>
-                    <p>Equilíbrio perfeito entre portabilidade e poder de fogo. Essencial para o drive-by.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Telhado do motel laranja em Jefferson.
-                        <span class="city-tag">San Fierro</span> Beco perto do Avispa Country Club.
-                    </div>
-                </div>
-            </section>
-
-            <!-- SNIPER -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_sniper.jpg" alt="Sniper Rifle" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>Sniper Rifle</h2>
-                    <p>Um tiro, uma vida. Elimine ameaças à distância com extrema precisão.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Topo das passarelas do "Stage 25" em Vinewood.
-                        <span class="city-tag">San Fierro</span> Telhado em frente à Otto's Autos.
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer>
-            <p>&copy; 2026 GTA San Andreas Cheat Sheet</p>
+        <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--color-accent); margin-top: 3rem;">
+            <p>&copy; 2026 GTA San Andreas Cheat Sheet - Projeto Acadêmico</p>
         </footer>
     </div>
+
+    <a href="#" class="back-to-top">↑</a>
 </body>
 </html>
