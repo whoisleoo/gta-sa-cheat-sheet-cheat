@@ -956,4 +956,5 @@ p {
   @media (max-width: 768px) {
       .vehicles-hero { padding: 5rem 1.5rem 3rem; }
       .cheats-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none;}
   }
