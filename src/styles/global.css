@@ -1,26 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* VARIAVEIS DE COR DO PROJETO */
     --color-background: #0C0C0C;
     --color-background-contrast: #000000;
     --color-text-contrast: white;
     --color-accent: #FF6500;
     --color-accent-contrast: #C62300;
-
-    /* VARIAVEIS DE FONTES PRO PROJETO */
     --font-body: 'Archivo Black', sans-serif;
     --font-content: 'Inter', sans-serif;
-
-  }
-  
-
+}
 
 *,
 *:active,
 *:focus {
-  box-sizing: border-box;
-  outline: none;
+    box-sizing: border-box;
+    outline: none;
 }
 
 html {
@@ -30,36 +24,31 @@ html {
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
 
-  body{
+body {
     font-family: var(--font-content);
-  }
+}
 
 html,
 body {
-  overflow-x: clip;
-  background-color: var(--color-background);
-  scroll-behavior: auto;
-  overscroll-behavior: none;
+    overflow-x: clip;
+    background-color: var(--color-background);
+    scroll-behavior: auto;
+    overscroll-behavior: none;
 }
 
-
-
-   h1, h2, h3, h4 {
+h1, h2, h3, h4 {
     font-family: var(--font-body);
     color: var(--color-accent);
-  }
+}
 
-  p{
+p {
     font-family: var(--font-content);
     color: var(--color-text-contrast);
+}
 
-  }
-
-
-  /* COISAS BASICAS: */
-  .container {
+.container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -67,202 +56,677 @@ body {
 }
 
 
-/* NAVBAR */
-/* NAVBAR */
+/* BARRA DE NAVEGACAO INCRIVEL */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  height: 64px;
-  border-bottom: 1px solid var(--color-accent);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--color-bg, #0a0a0a);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 64px;
+    border-bottom: 1px solid var(--color-accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-background);
 }
 
 .nav-logo img {
-  height: 70px;
-  width: auto;
-  display: block;
+    height: 70px;
+    width: auto;
+    display: block;
 }
 
 .nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-text, #ccc);
-  transition: color 0.2s;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ccc;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--color-accent, #ffd700);
+    color: var(--color-accent);
 }
 
-/* FOOTER */
+
+/* FOOTER DO PRPJETO */
 .footer {
-  text-align: center;
-  padding: 3rem 0;
-  border-top: 1px solid var(--color-accent);
-  margin-top: 3rem;
-  font-size: 13px;
-  color: var(--color-text-muted, #666);
-}
-
-.about {
-
-}
-
-.cheats {
-
-}
-
-.footer {
-    
-}
-
-
-
-
-/* GABRIEL WEAPONS SECTION */
-  header {
     text-align: center;
-    padding: 2rem 0;
-    border-bottom: 2px solid var(--color-accent);
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-accent);
+    margin-top: 3rem;
+    font-size: 13px;
+    color: #666;
 }
 
-header h1 {
-    font-size: 2.5rem;
+
+/* EFEITO BRILHOSO QUE N FUNCIONA */
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+}
+
+.shimmer-effect {
+    background: linear-gradient(
+        90deg,
+        #b8620b 0%,
+        #ff8000 25%,
+        #fffacd 45%,
+        #ff7300 55%,
+        #b86d0b 80%,
+        #ff7700 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+
+/* ANIMACOES INCRIVEIS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* SECTION DE HERO DO INDEX */
+.vehicles-hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 5rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.vehicles-hero h1 {
+    position: relative;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 4px;
+    animation: fadeDown 0.9s ease both;
+    margin-bottom: 1.2rem;
+}
+
+.vehicles-hero p {
+    position: relative;
+    color: #aaa;
+    max-width: 520px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    animation: fadeDown 1s 0.15s ease both;
+    margin-bottom: 2rem;
+}
+
+.vehicles-hero-btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    background: var(--color-accent);
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.25s, transform 0.25s;
+    animation: fadeDown 1s 0.3s ease both;
+}
+
+.vehicles-hero-btn:hover {
+    background: var(--color-accent-contrast);
+    transform: translateY(-3px);
+}
+
+
+/* APENAS PRA FICAR STICKY */
+.sticky-label {
+    position: sticky;
+    top: 64px;
+    z-index: 10;
+    padding: 0.6rem 0;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border-bottom: 1px solid rgba(255, 101, 0, 0.2);
+    margin-bottom: 2rem;
+    font-family: var(--font-content);
+    background: var(--color-background);
+}
+
+.section-label {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
     margin-bottom: 0.5rem;
+    font-family: var(--font-content);
 }
 
-.search-container {
-    margin: 2rem 0;
-    text-align: center;
+.section-title {
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
 }
+
+
+/* SECTION DE ABOUT DO INDEX.HTML */
+.about {
+    padding: 5rem 0;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.about-split {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.about-text p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #1f1f1f;
+    transition: border-color 0.3s;
+}
+
+.about-image:hover {
+    border-color: var(--color-accent);
+}
+
+.about-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* SECTION GRID PRA FUNCIONAR O CONTENT */
+.sections {
+    padding: 5rem 0;
+}
+
+.sections-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.section-card {
+    background: var(--color-background-contrast);
+    border: 1px solid #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.section-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+}
+
+.section-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: #111;
+}
+
+.section-card-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #2a2a2a;
+}
+
+.section-card-body {
+    padding: 1.2rem 1.4rem 1.6rem;
+}
+
+.section-card-body h3 {
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.4rem;
+}
+
+.section-card-body p {
+    color: #777;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.section-card-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+}
+
+
+/* SECTION DE ARMAS GABRIEL */
+.weapons-search {
+    padding: 2rem 3rem;
+    background: var(--color-background-contrast);
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+}
+
 .search-form input {
-    padding: 0.8rem;
+    flex: 1;
+    padding: 0.8rem 1rem;
     border-radius: 4px;
-    border: 1px solid var(--color-accent);
+    border: 1px solid #1f1f1f;
     background: var(--color-background);
     color: white;
-    width: 100%;
-    max-width: 300px;
+    font-family: var(--font-content);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
 }
+
+.search-form input:focus {
+    border-color: var(--color-accent);
+}
+
 .search-form button {
     padding: 0.8rem 1.5rem;
     background: var(--color-accent);
     border: none;
-    color: white;
+    color: #000;
     cursor: pointer;
     font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
     border-radius: 4px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: background 0.2s;
 }
 
-/* REQUISITO: Grid Layout na lista de armas */
+.search-form button:hover {
+    background: var(--color-accent-contrast);
+}
+
+.weapons-section {
+    padding: 3rem 0 5rem;
+}
+
 #weapon-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
 }
 
-/* Flexbox nos cards (Mantido) */
 .weapon-card {
-    background-color: var(--color-background-contrast);
-    border: 2px solid var(--color-accent);
+    background: var(--color-background-contrast);
+    border: 1px solid #1f1f1f;
     border-radius: 8px;
     padding: 1.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease; /* Animação 1: Transition/Transform */
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: border-color 0.3s, transform 0.3s;
+    animation: cardIn 0.6s ease both;
 }
 
 .weapon-card:hover {
-    transform: translateY(-5px); /* Animação 2: Hover com deslocamento */
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
 }
+
+.weapon-card:nth-child(1) { animation-delay: 0.05s; }
+.weapon-card:nth-child(2) { animation-delay: 0.10s; }
+.weapon-card:nth-child(3) { animation-delay: 0.15s; }
+.weapon-card:nth-child(4) { animation-delay: 0.20s; }
+.weapon-card:nth-child(5) { animation-delay: 0.25s; }
+.weapon-card:nth-child(6) { animation-delay: 0.30s; }
 
 .weapon-image {
-    width: 100%;
-    max-width: 300px;
-    height: 200px; /* Altura fixa para nivelar */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-accent-contrast);
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #1f1f1f;
+    flex-shrink: 0;
+    transition: border-color 0.3s;
 }
 
-/* REQUISITO: Animação com Keyframes */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+.weapon-card:hover .weapon-image {
+    border-color: var(--color-accent-contrast);
 }
 
-.weapon-card {
-    animation: fadeIn 0.6s ease-out forwards; /* Animação 3: Keyframes */
+.weapon-info {
+    flex: 1;
 }
 
 .weapon-info h2 {
-    margin-top: 0;
-    text-transform: uppercase;
-}
-
-.weapon-info p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* Aba de localização com animação suave */
-.location-tab {
-    margin-top: 1rem;
-    background-color: var(--color-accent);
-    color: var(--color-background);
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    display: inline-block;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, letter-spacing 0.3s; /* Animação 4: Múltiplas transições */
-}
-
-.location-tab:hover {
+    font-size: 1.4rem;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 0.4rem;
+}
+
+.weapon-info > p {
+    color: #aaa;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.location-tab {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--color-accent);
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    margin-bottom: 0.8rem;
 }
 
 .location-content {
-    max-height: 0;
+    font-size: 0.85rem;
+    color: #aaa;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 0.8rem;
+    line-height: 1.7;
+}
+
+.city-tag {
+    color: var(--color-accent);
+    font-weight: bold;
+    display: block;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+
+/* SECTION DE CARROS EDUARDO */
+.vehicles-section {
+    padding: 3rem 0 5rem;
+    background: var(--color-background-contrast);
+}
+
+.vehicles-section .sticky-label {
+    background: var(--color-background-contrast);
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.car-card {
+    background: var(--color-background);
+    border: 1px solid #1f1f1f;
+    border-radius: 8px;
     overflow: hidden;
-    opacity: 0;
+    position: relative;
+    transition: transform 0.35s ease, border-color 0.35s;
+    animation: cardIn 0.6s ease both;
+}
+
+.car-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+}
+
+.car-card:nth-child(1) { animation-delay: 0.05s; }
+.car-card:nth-child(2) { animation-delay: 0.12s; }
+.car-card:nth-child(3) { animation-delay: 0.19s; }
+.car-card:nth-child(4) { animation-delay: 0.26s; }
+.car-card:nth-child(5) { animation-delay: 0.33s; }
+.car-card:nth-child(6) { animation-delay: 0.40s; }
+
+.car-rank {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-accent);
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 2px 10px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    z-index: 2;
+}
+
+.car-img-wrap {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    position: relative;
+}
+
+.car-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: brightness(0.9) saturate(1.2);
+}
+
+.car-card:hover .car-img-wrap img {
+    transform: scale(1.08);
+    filter: brightness(1.05) saturate(1.4);
+}
+
+.car-img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to top, var(--color-background), transparent);
+    pointer-events: none;
+}
+
+.car-img-wrap::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--color-accent);
+    transition: width 0.4s ease;
+    z-index: 2;
+}
+
+.car-card:hover .car-img-wrap::before {
+    width: 100%;
+}
+
+.car-info {
+    padding: 1.2rem;
+}
+
+.car-name {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
     color: var(--color-text-contrast);
-    border-left: 3px solid var(--color-accent);
-    margin-top: 0;
-    padding: 0 1rem;
-    text-align: left;
-    transition: all 0.4s ease-in-out;
 }
 
-.weapon-card:hover .location-content {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1rem;
-    padding: 1rem;
+.car-brand {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-content);
 }
 
-.city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
+.car-desc {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.6rem;
+    line-height: 1.6;
+    font-family: var(--font-content);
+}
 
-/* REQUISITO: Position Fixed no botão de topo */
+.car-stats {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border: 1px solid rgba(255, 101, 0, 0.35);
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-family: var(--font-content);
+}
+
+
+/* FORMULARIOS DO VEICULO */
+.contact-section {
+    padding: 5rem 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 700px;
+}
+
+.form-grid .full {
+    grid-column: 1 / -1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    font-family: var(--font-content);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    background: var(--color-background-contrast);
+    border: 1px solid #1f1f1f;
+    color: var(--color-text-contrast);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-content);
+    font-size: 0.95rem;
+    outline: none;
+    border-radius: 4px;
+    transition: border-color 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--color-accent);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select option {
+    background: var(--color-background-contrast);
+}
+
+.form-submit {
+    margin-top: 0.5rem;
+    padding: 0.9rem 2.5rem;
+    background: var(--color-accent);
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.form-submit:hover {
+    background: var(--color-accent-contrast);
+    transform: translateY(-2px);
+}
+
+
+/* BOTAO SECRETO */
 .back-to-top {
     position: fixed;
     bottom: 20px;
@@ -276,40 +740,22 @@ header h1 {
     z-index: 1000;
 }
 
-/* Responsividade com Grid */
+
+/* PRA FUNCIONAR RESPONSIVIDADE PRECISA DISSO */
+@media (max-width: 768px) {
+    .vehicles-hero { padding: 5rem 1.5rem 3rem; }
+    .about-split { flex-direction: column; gap: 2rem; }
+    .about-image img { height: 220px; }
+    .sections-grid { grid-template-columns: 1fr; }
+    .weapon-card { flex-direction: column; }
+    .weapon-image { width: 100%; height: 180px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-grid .full { grid-column: 1; }
+    .weapons-search { padding: 1.5rem; }
+}
+
 @media (min-width: 992px) {
     #weapon-list {
-        grid-template-columns: 1fr 1fr; /* Grid em duas colunas no desktop */
+        grid-template-columns: 1fr 1fr;
     }
 }
-
-@media (min-width: 768px) {
-    .weapon-card {
-        text-align: left;
-        align-items: flex-start;
-    }
-}
-
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
-}
-
-.shimmer-effect {
-  background: linear-gradient(
-    90deg,
-    #b8620b 0%,
-    #ff8000 25%,
-    #fffacd 45%,
-    #ff7300 55%,
-    #b86d0b 80%,
-    #ff7700 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-/* FIM DA SECTION GABRIEL */

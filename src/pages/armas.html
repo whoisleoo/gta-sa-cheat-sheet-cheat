@@ -5,121 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melhores Armas - GTA San Andreas</title>
     <link rel="stylesheet" href="../styles/global.css">
-    <style>
-    </style>
+   
 </head>
 <body>
+    <audio id="bg-music" src="../content/gtasanandreasfullsong.ogg" loop></audio>
+    <audio id="click-sound" src="../content/click.ogg" preload="auto"></audio>
+
+
     <nav class="navbar">
         <a href="../pages/index.html" class="nav-logo">
-          <img src="../content/logo.png" alt="Logo">
+            <img src="../content/logo.png" alt="Logo">
         </a>
         <ul class="nav-links">
-          <li><a href="../pages/cheats.html">CHEATS</a></li>
-          <li><a href="../pages/armas.html">WEAPONS</a></li>
-          <li><a href="../pages/vehicles.html">VEHICLES</a></li>
+            <li><a href="../pages/cheats.html">CHEATS</a></li>
+            <li><a href="../pages/armas.html">WEAPONS</a></li>
+            <li><a href="../pages/vehicles.html">VEHICLES</a></li>
         </ul>
-      </nav>
+    </nav>
 
+    <!-- HERO -->
+    <section class="vehicles-hero">
+        <h1 class="shimmer-effect">ARMAS DE<br>SAN ANDREAS</h1>
+        <p>As armas mais letais do estado. Localizações, dicas e tudo que você precisa para sobreviver nas ruas.</p>
+    </section>
 
-    <div class="container">
-        <header>
-            <h1 class="shimmer-effect">ARMAS DE SAN ANDREAS</h1>
-            <div class="search-container">
-                <form class="search-form" onsubmit="return false;">
-                    <input type="text" placeholder="Buscar arma...">
-                    <button type="submit">BUSCAR</button>
-                </form>
-            </div>
-        </header>
-
-        <main id="weapon-list">
-            <!-- KATANA -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_katana.jpg" alt="Katana" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>Katana</h2>
-                    <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Beco em frente à esquina do desafio de lowriders.
-                    </div>
-                </div>
-            </section>
-
-            <!-- M4 -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_M4.jpg" alt="M4" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>M4</h2>
-                    <p>Quando a situação esquenta e você precisa de precisão, a M4 é sua melhor amiga.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Final da pista da direita do Aeroporto de LS.
-                    </div>
-                </div>
-            </section>
-
-            <!-- MINIGUN -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_minigun.jpg" alt="Minigun" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>Minigun</h2>
-                    <p>O ápice da destruição. Transforma veículos em sucatas em segundos.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">San Fierro</span> Topo do primeiro arco da ponte ferroviária.
-                    </div>
-                </div>
-            </section>
-
-            <!-- BOMBA C4 -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_satchel_charge_(1).jpg" alt="Bomba C4" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>Bomba C4</h2>
-                    <p>Para o estrategista explosivo. Detone-as à distância.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">San Fierro</span> Atrás do prédio do Avispa Country Club.
-                        <span class="city-tag">Red County</span> Beco ao lado da Inside Track em Montgomery.
-                    </div>
-                </div>
-            </section>
-
-            <!-- SMG -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_SMG.jpg" alt="SMG" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>SMG (MP5)</h2>
-                    <p>Equilíbrio perfeito entre portabilidade e poder de fogo. Essencial para o drive-by.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Telhado do motel laranja em Jefferson.
-                        <span class="city-tag">San Fierro</span> Beco perto do Avispa Country Club.
-                    </div>
-                </div>
-            </section>
-
-            <!-- SNIPER -->
-            <section class="weapon-card">
-                <img src="../content/San_Andreas_sniper.jpg" alt="Sniper Rifle" class="weapon-image">
-                <div class="weapon-info">
-                    <h2>Sniper Rifle</h2>
-                    <p>Um tiro, uma vida. Elimine ameaças à distância com extrema precisão.</p>
-                    <div class="location-tab">LOCALIZAÇÃO</div>
-                    <div class="location-content">
-                        <span class="city-tag">Los Santos</span> Topo das passarelas do "Stage 25" em Vinewood.
-                        <span class="city-tag">San Fierro</span> Telhado em frente à Otto's Autos.
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <p>&copy; 2026 GTA San Andreas Cheat Sheet - Projeto Acadêmico</p>
-          </footer>
+    <!-- SEARCH -->
+    <div class="weapons-search">
+        <form class="search-form" onsubmit="return false;">
+            <input type="text" id="search-input" placeholder="Buscar arma..." oninput="filterWeapons(this.value)">
+            <button type="submit">BUSCAR</button>
+        </form>
     </div>
 
+    <!-- WEAPON LIST -->
+    <section class="weapons-section">
+        <div class="container">
+            <div class="sticky-label">// arsenal — gabriel</div>
+            <main id="weapon-list">
+
+                <!-- KATANA -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_katana.jpg" alt="Katana" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>Katana</h2>
+                        <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">Los Santos</span> Beco em frente à esquina do desafio de lowriders.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- M4 -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_M4.jpg" alt="M4" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>M4</h2>
+                        <p>Quando a situação esquenta e você precisa de precisão, a M4 é sua melhor amiga.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">Los Santos</span> Final da pista da direita do Aeroporto de LS.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MINIGUN -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_minigun.jpg" alt="Minigun" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>Minigun</h2>
+                        <p>O ápice da destruição. Transforma veículos em sucatas em segundos.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">San Fierro</span> Topo do primeiro arco da ponte ferroviária.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BOMBA C4 -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_satchel_charge_(1).jpg" alt="Bomba C4" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>Bomba C4</h2>
+                        <p>Para o estrategista explosivo. Detone-as à distância.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">San Fierro</span> Atrás do prédio do Avispa Country Club.
+                            <span class="city-tag">Red County</span> Beco ao lado da Inside Track em Montgomery.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SMG -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_SMG.jpg" alt="SMG" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>SMG (MP5)</h2>
+                        <p>Equilíbrio perfeito entre portabilidade e poder de fogo. Essencial para o drive-by.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">Los Santos</span> Telhado do motel laranja em Jefferson.
+                            <span class="city-tag">San Fierro</span> Beco perto do Avispa Country Club.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SNIPER -->
+                <section class="weapon-card">
+                    <img src="../content/San_Andreas_sniper.jpg" alt="Sniper Rifle" class="weapon-image">
+                    <div class="weapon-info">
+                        <h2>Sniper Rifle</h2>
+                        <p>Um tiro, uma vida. Elimine ameaças à distância com extrema precisão.</p>
+                        <div class="location-tab">LOCALIZAÇÃO</div>
+                        <div class="location-content">
+                            <span class="city-tag">Los Santos</span> Topo das passarelas do "Stage 25" em Vinewood.
+                            <span class="city-tag">San Fierro</span> Telhado em frente à Otto's Autos.
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 GTA San Andreas Cheat Sheet — Projeto Acadêmico</p>
+        </div>
+    </footer>
+
     <a href="#" class="back-to-top">↑</a>
+
+    <!-- DIONATHAN PFV PERDOE ESSE SCRIPT MAS É NECESSÁRIO VC SABE QUE É -->
+    <script>
+        const music = document.getElementById('bg-music');
+        const click = document.getElementById('click-sound');
+      
+        music.volume = 0.2;
+      
+        document.addEventListener('click', () => {
+          if (music.paused) music.play();
+        }, { once: true });
+      
+        document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            click.currentTime = 0;
+            click.play();
+          });
+        });
+      </script>
+  
 </body>
+
 </html>
