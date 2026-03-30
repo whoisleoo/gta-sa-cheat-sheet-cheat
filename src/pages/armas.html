@@ -6,107 +6,30 @@
     <title>Melhores Armas - GTA San Andreas</title>
     <link rel="stylesheet" href="../styles/global.css">
     <style>
-        .weapon-card {
-            background-color: var(--color-background-contrast);
-            border: 2px solid var(--color-accent);
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .weapon-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--color-accent-contrast);
-        }
-
-        .weapon-info h2 {
-            margin-top: 0;
-            text-transform: uppercase;
-        }
-
-        .weapon-info p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .weapon-card {
-                flex-direction: row;
-                text-align: left;
-                gap: 2rem;
-                align-items: flex-start;
-            }
-
-            .weapon-image {
-                width: 300px;
-                margin-bottom: 0;
-            }
-            .weapon-info { flex: 1; }
-        }
-
-        /* Estilos base para localização (Hover Flexível) */
-        .location-tab {
-            margin-top: 1rem;
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            display: inline-block;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .location-content {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            background-color: rgba(255, 101, 0, 0.05);
-            border-left: 3px solid var(--color-accent);
-            margin-top: 0;
-            padding: 0 1rem;
-            text-align: left;
-            transition: all 0.4s ease-in-out;
-        }
-
-        .weapon-card:hover .location-content {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 1rem;
-            padding: 1rem;
-        }
-
-        .weapon-card:hover .location-tab {
-            background-color: var(--color-accent-contrast);
-        }
-
-        .city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <a href="../pages/index.html" class="nav-logo">
+          <img src="../content/logo.png" alt="Logo">
+        </a>
+        <ul class="nav-links">
+          <li><a href="../pages/cheats.html">CHEATS</a></li>
+          <li><a href="../pages/armas.html">WEAPONS</a></li>
+          <li><a href="../pages/vehicles.html">VEHICLES</a></li>
+        </ul>
+      </nav>
+
+
     <div class="container">
         <header>
-            <h1>AS MELHORES ARMAS DE SAN ANDREAS</h1>
-            <p class="intro-text">
-                O arsenal definitivo para dominar as ruas de Los Santos, San Fierro e Las Venturas.
-            </p>
+            <h1 class="shimmer-effect">ARMAS DE SAN ANDREAS</h1>
+            <div class="search-container">
+                <form class="search-form" onsubmit="return false;">
+                    <input type="text" placeholder="Buscar arma...">
+                    <button type="submit">BUSCAR</button>
+                </form>
+            </div>
         </header>
 
         <main id="weapon-list">
@@ -115,12 +38,10 @@
                 <img src="../content/San_Andreas_katana.jpg" alt="Katana" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Katana</h2>
-                    <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio. Decapite seus inimigos com precisão milimétrica.</p>
+                    <p>A Katana é a escolha perfeita para quem prefere um toque de classe e silêncio.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">Los Santos</span> Beco em frente à esquina do desafio de lowriders.
-                        <span class="city-tag">San Fierro</span> Chinatown, beco perto do fim da rua à direita.
-                        <span class="city-tag">Las Venturas</span> Ao lado do save point do Four Dragons Casino.
                     </div>
                 </div>
             </section>
@@ -130,12 +51,10 @@
                 <img src="../content/San_Andreas_M4.jpg" alt="M4" class="weapon-image">
                 <div class="weapon-info">
                     <h2>M4</h2>
-                    <p>Quando a situação esquenta e você precisa de precisão a longa distância, a M4 é sua melhor amiga.</p>
+                    <p>Quando a situação esquenta e você precisa de precisão, a M4 é sua melhor amiga.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">Los Santos</span> Final da pista da direita do Aeroporto de LS.
-                        <span class="city-tag">San Fierro</span> Palisades, quintal da terceira casa.
-                        <span class="city-tag">Las Venturas</span> Telhado de um motel com piscina em Pilgrim.
                     </div>
                 </div>
             </section>
@@ -145,11 +64,10 @@
                 <img src="../content/San_Andreas_minigun.jpg" alt="Minigun" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Minigun</h2>
-                    <p>O ápice da destruição. Capaz de transformar veículos em sucatas fumegantes em segundos.</p>
+                    <p>O ápice da destruição. Transforma veículos em sucatas em segundos.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">San Fierro</span> Topo do primeiro arco da ponte ferroviária.
-                        <span class="city-tag">Las Venturas</span> Beco em Roca Escalante, ao lado da Dick's Sounds.
                     </div>
                 </div>
             </section>
@@ -159,7 +77,7 @@
                 <img src="../content/San_Andreas_satchel_charge_(1).jpg" alt="Bomba C4" class="weapon-image">
                 <div class="weapon-info">
                     <h2>Bomba C4</h2>
-                    <p>Para o estrategista explosivo. Plante-as em carros e detone-as à distância.</p>
+                    <p>Para o estrategista explosivo. Detone-as à distância.</p>
                     <div class="location-tab">LOCALIZAÇÃO</div>
                     <div class="location-content">
                         <span class="city-tag">San Fierro</span> Atrás do prédio do Avispa Country Club.
@@ -197,9 +115,11 @@
             </section>
         </main>
 
-        <footer>
-            <p>&copy; 2026 GTA San Andreas Cheat Sheet</p>
-        </footer>
+        <footer class="footer">
+            <p>&copy; 2026 GTA San Andreas Cheat Sheet - Projeto Acadêmico</p>
+          </footer>
     </div>
+
+    <a href="#" class="back-to-top">↑</a>
 </body>
 </html>

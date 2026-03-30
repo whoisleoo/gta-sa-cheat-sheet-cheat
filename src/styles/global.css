@@ -3,7 +3,8 @@
 :root {
     /* VARIAVEIS DE COR DO PROJETO */
     --color-background: #0C0C0C;
-    --color-background-contrast: #181C14;
+    --color-background-contrast: #000000;
+    --color-text-contrast: white;
     --color-accent: #FF6500;
     --color-accent-contrast: #C62300;
 
@@ -52,7 +53,7 @@ body {
 
   p{
     font-family: var(--font-content);
-    color: white;
+    color: var(--color-text-contrast);
 
   }
 
@@ -66,8 +67,56 @@ body {
 }
 
 
+/* NAVBAR */
+/* NAVBAR */
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  border-bottom: 1px solid var(--color-accent);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg, #0a0a0a);
+}
 
+.nav-logo img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text, #ccc);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent, #ffd700);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-accent);
+  margin-top: 3rem;
+  font-size: 13px;
+  color: var(--color-text-muted, #666);
 }
 
 .about {
@@ -81,3 +130,186 @@ body {
 .footer {
     
 }
+
+
+
+
+/* GABRIEL WEAPONS SECTION */
+  header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.search-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+.search-form input {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-accent);
+    background: var(--color-background);
+    color: white;
+    width: 100%;
+    max-width: 300px;
+}
+.search-form button {
+    padding: 0.8rem 1.5rem;
+    background: var(--color-accent);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-body);
+    border-radius: 4px;
+}
+
+/* REQUISITO: Grid Layout na lista de armas */
+#weapon-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Flexbox nos cards (Mantido) */
+.weapon-card {
+    background-color: var(--color-background-contrast);
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease; /* Animação 1: Transition/Transform */
+}
+
+.weapon-card:hover {
+    transform: translateY(-5px); /* Animação 2: Hover com deslocamento */
+}
+
+.weapon-image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px; /* Altura fixa para nivelar */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-accent-contrast);
+}
+
+/* REQUISITO: Animação com Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.weapon-card {
+    animation: fadeIn 0.6s ease-out forwards; /* Animação 3: Keyframes */
+}
+
+.weapon-info h2 {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.weapon-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Aba de localização com animação suave */
+.location-tab {
+    margin-top: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, letter-spacing 0.3s; /* Animação 4: Múltiplas transições */
+}
+
+.location-tab:hover {
+    letter-spacing: 2px;
+}
+
+.location-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: var(--color-text-contrast);
+    border-left: 3px solid var(--color-accent);
+    margin-top: 0;
+    padding: 0 1rem;
+    text-align: left;
+    transition: all 0.4s ease-in-out;
+}
+
+.weapon-card:hover .location-content {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.city-tag { color: var(--color-accent); font-weight: bold; display: block; margin-top: 0.8rem; text-transform: uppercase; }
+
+/* REQUISITO: Position Fixed no botão de topo */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-accent);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    z-index: 1000;
+}
+
+/* Responsividade com Grid */
+@media (min-width: 992px) {
+    #weapon-list {
+        grid-template-columns: 1fr 1fr; /* Grid em duas colunas no desktop */
+    }
+}
+
+@media (min-width: 768px) {
+    .weapon-card {
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    #b8620b 0%,
+    #ff8000 25%,
+    #fffacd 45%,
+    #ff7300 55%,
+    #b86d0b 80%,
+    #ff7700 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* FIM DA SECTION GABRIEL */
